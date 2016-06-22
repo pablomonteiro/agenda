@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="br.com.alura.agenda.FormularioActivity">
+
+    <item
+        android:id="@+id/item_menu_confirmar"
+        android:title="Salvar"
+        android:icon="@drawable/ic_confirmar"
+        app:showAsAction="always"/>
+
+</menu>

@@ -1,0 +1,26 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listaAlunos"/>
+
+    <Button
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:id="@+id/lista_novo_aluno"
+        android:hint="+"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/button_add"
+        android:elevation="6dp"
+        android:stateListAnimator="@null"/>
+
+</RelativeLayout>
