@@ -10,16 +10,19 @@ import android.widget.Toast;
 
 import br.com.alura.agenda.dao.AlunoDAO;
 import br.com.alura.agenda.modelo.Aluno;
+import br.com.alura.agenda.validations.ValidacaoFormulario;
 
 public class FormularioActivity extends AppCompatActivity {
 
     private FormularioAlunoHelper helper;
+    private ValidacaoFormulario validador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
         helper = new FormularioAlunoHelper(this);
+        validador = new ValidacaoFormulario(this);
 
         Intent intent = getIntent();
         Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");
@@ -39,8 +42,10 @@ public class FormularioActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_menu_confirmar:
-                gravaAluno();
-                finish();
+                if(validador.validaPreenchimentoDosCamposObrigatorios()) {
+                    gravaAluno();
+                    finish();
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
