@@ -2,6 +2,7 @@ package br.com.alura.agenda;
 
 import android.app.Application;
 import android.support.test.espresso.Espresso;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -22,7 +23,15 @@ public class ApplicationTest {
     public ActivityTestRule<FormularioActivity> activity = new ActivityTestRule<>(FormularioActivity.class);
 
     @Test
-    public void firstTest() {
+    public void deveriaVerificarObrigatoriedadeDosCampos() {
+        Espresso.onView(ViewMatchers.withId(R.id.item_menu_confirmar)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.formulario_nome)).check(ViewAssertions.matches(ViewMatchers.hasErrorText("Campo Obrigatório")));
+        Espresso.onView(ViewMatchers.withId(R.id.formulario_telefone)).check(ViewAssertions.matches(ViewMatchers.hasErrorText("Campo Obrigatório")));
+        Espresso.onView(ViewMatchers.withId(R.id.formulario_endereco)).check(ViewAssertions.matches(ViewMatchers.hasErrorText("Campo Obrigatório")));
+    }
+
+    @Test
+    public void deveriaGravarAluno() {
         Espresso.onView(ViewMatchers.withId(R.id.formulario_nome)).check(ViewAssertions.matches(ViewMatchers.withText("")));
     }
 
