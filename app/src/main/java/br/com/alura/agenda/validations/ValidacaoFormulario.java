@@ -30,6 +30,7 @@ public class ValidacaoFormulario {
     }
 
     public boolean validaPreenchimentoDosCamposObrigatorios() {
+        formularioValido = true;
         validaEditText(telefone);
         validaEditText(endereco);
         validaEditText(nome);
